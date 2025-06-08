@@ -1,0 +1,2159 @@
+{
+  "comunitats": {
+    "ES-AN" : {
+      "name": "Andalucia",
+      "code": "ES-AN",
+      "population_2021": 8472407,
+      "population_2022": 8500187,
+      "population_2023": 8632107,
+      "population_2024": 8619616
+    },
+    "ES-AR" : {
+      "name": "Aragon",
+      "code": "ES-AR",
+      "population_2021": 1340000,
+      "population_2022": 1345000,
+      "population_2023": 1341289,
+      "population_2024": 1351591
+    },
+    "ES-AS" :{
+      "name": "Asturias",
+      "code": "ES-AS",
+      "population_2021": 1005000,
+      "population_2022": 1008000,
+      "population_2023": 1009599,
+      "population_2024": 1009599
+    },
+    "ES-IB" : {
+      "name": "Illes Balears",
+      "code": "ES-IB",
+      "population_2021": 1200000,
+      "population_2022": 1210000,
+      "population_2023": 1209906,
+      "population_2024": 1231487
+    },
+    "ES-CN" : {
+      "name": "Canarias",
+      "code": "ES-CN",
+      "population_2021": 2190000,
+      "population_2022": 2200000,
+      "population_2023": 2213016,
+      "population_2024": 2202048
+    },
+    "ES-CB" : {
+      "name": "Cantabria",
+      "code": "ES-CB",
+      "population_2021": 580000,
+      "population_2022": 585000,
+      "population_2023": 588387,
+      "population_2024": 590851
+    },
+    "ES-CL" : {
+      "name": "Castilla y Leon",
+      "code": "ES-CL",
+      "population_2021": 2370000,
+      "population_2022": 2375000,
+      "population_2023": 2383703,
+      "population_2024": 2391682
+    },
+    "ES-CM" : {
+      "name": "Castilla La Mancha",
+      "code": "ES-CM",
+      "population_2021": 2070000,
+      "population_2022": 2080000,
+      "population_2023": 2084086,
+      "population_2024": 2104433
+    },
+    "ES-CT" : {
+      "name": "Catalunya",
+      "code": "ES-CT",
+      "population_2021": 7900000,
+      "population_2022": 7920000,
+      "population_2023": 7901963,
+      "population_2024": 8012231
+    },
+    "ES-VC" : {
+      "name": "Comunitat Valenciana",
+      "code": "ES-VC",
+      "population_2021": 5200000,
+      "population_2022": 5205000,
+      "population_2023": 5216195,
+      "population_2024": 5319285
+    },
+    "ES-EX" : {
+      "name": "Extremadura",
+      "code": "ES-EX",
+      "population_2021": 1050000,
+      "population_2022": 1052000,
+      "population_2023": 1054306,
+      "population_2024": 1054681
+    },
+    "ES-GA" : {
+      "name": "Galicia",
+      "code": "ES-GA",
+      "population_2021": 2690000,
+      "population_2022": 2695000,
+      "population_2023": 2699424,
+      "population_2024": 2705833
+    },
+    "ES-MD" : {
+      "name": "Madrid",
+      "code": "ES-MD",
+      "population_2021": 6800000,
+      "population_2022": 6850000,
+      "population_2023": 6871903,
+      "population_2024": 7001715
+    },
+    "ES-MC" : {
+      "name": "Murcia",
+      "code": "ES-MC",
+      "population_2021": 1550000,
+      "population_2022": 1555000,
+      "population_2023": 1551692,
+      "population_2024": 1552457
+    },
+    "ES-NC" : {
+      "name": "Navarra",
+      "code": "ES-NC",
+      "population_2021": 670000,
+      "population_2022": 672000,
+      "population_2023": 672155,
+      "population_2024": 678333
+    },
+    "ES-PV" : {
+      "name": "País Vasco",
+      "code": "ES-PV",
+      "population_2021": 2210000,
+      "population_2022": 2215000,
+      "population_2023": 2216302,
+      "population_2024": 2227684
+    },
+    "ES-RI" : {
+      "name": "La Rioja",
+      "code": "ES-RI",
+      "population_2021": 320000,
+      "population_2022": 322000,
+      "population_2023": 322282,
+      "population_2024": 324184
+    }
+  },
+  "holidays" : {
+    "2021" : [
+      {
+          "date": "2021-01-01",
+          "localName": "Año Nuevo",
+          "name": "New Year's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-01-06",
+          "localName": "Día de Reyes / Epifanía del Señor",
+          "name": "Epiphany",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-02-28",
+          "localName": "Día de Andalucía",
+          "name": "Day of Andalucía",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-03-01",
+          "localName": "Dia de les Illes Balears",
+          "name": "Day of the Balearic Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-IB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-03-19",
+          "localName": "San José",
+          "name": "St. Joseph's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-EX",
+              "ES-GA",
+              "ES-MD",
+              "ES-PV",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-04-01",
+          "localName": "Jueves Santo",
+          "name": "Maundy Thursday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN",
+              "ES-AR",
+              "ES-CL",
+              "ES-CM",
+              "ES-CN",
+              "ES-EX",
+              "ES-GA",
+              "ES-IB",
+              "ES-RI",
+              "ES-MD",
+              "ES-MC",
+              "ES-NC",
+              "ES-AS",
+              "ES-PV",
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-04-02",
+          "localName": "Viernes Santo",
+          "name": "Good Friday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-04-05",
+          "localName": "Lunes de Pascua",
+          "name": "Easter Monday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-IB",
+              "ES-RI",
+              "ES-NC",
+              "ES-PV",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-04-23",
+          "localName": "Día de Castilla y León",
+          "name": "Castile and León Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CL"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-04-23",
+          "localName": "San Jorge (Día de Aragón)",
+          "name": "Day of Aragón",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AR"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-05-01",
+          "localName": "Fiesta del trabajo",
+          "name": "Labour Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-05-03",
+          "localName": "Fiesta de la Comunidad de Madrid",
+          "name": "Day of Madrid",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MD"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-05-17",
+          "localName": "Día das Letras Galegas",
+          "name": "Galician Literature Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-GA"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-05-30",
+          "localName": "Día de Canarias",
+          "name": "Day of the Canary Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-05-31",
+          "localName": "Día de la Región Castilla-La Mancha",
+          "name": "Day of Castilla-La Mancha",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-06-03",
+          "localName": "Corpus Christi",
+          "name": "Corpus Christi",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-06-09",
+          "localName": "Día de La Rioja",
+          "name": "Day of La Rioja",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-RI"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-06-09",
+          "localName": "Día de la Región de Murcia",
+          "name": "Day of Murcia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-06-24",
+          "localName": "Sant Joan",
+          "name": "St. John's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-07-28",
+          "localName": "Día de las Instituciones de Cantabria",
+          "name": "Day of the Cantabrian Institutions",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-08-16",
+          "localName": "Asunción",
+          "name": "Assumption",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-09-08",
+          "localName": "Día de Asturias",
+          "name": "Day of Asturias",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AS"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-09-08",
+          "localName": "Día de Extremadura",
+          "name": "Day of Extremadura",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-EX"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-09-11",
+          "localName": "Diada Nacional de Catalunya",
+          "name": "National Day of Catalonia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-09-15",
+          "localName": "La Bien Aparecida",
+          "name": "Regional Holiday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-10-09",
+          "localName": "Dia de la Comunitat Valenciana",
+          "name": "Day of the Valencian Community",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-10-12",
+          "localName": "Fiesta Nacional de España",
+          "name": "Fiesta Nacional de España",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-11-01",
+          "localName": "Día de todos los Santos",
+          "name": "All Saints Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-12-06",
+          "localName": "Día de la Constitución",
+          "name": "Constitution Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-12-08",
+          "localName": "Inmaculada Concepción",
+          "name": "Immaculate Conception",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-12-25",
+          "localName": "Navidad",
+          "name": "Christmas Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2021-12-26",
+          "localName": "St. Stephen's Day",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      }
+    ],
+    "2022" : [
+      {
+          "date": "2022-01-01",
+          "localName": "Año Nuevo",
+          "name": "New Year's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-01-06",
+          "localName": "Día de Reyes / Epifanía del Señor",
+          "name": "Epiphany",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-02-28",
+          "localName": "Día de Andalucía",
+          "name": "Day of Andalucía",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-03-01",
+          "localName": "Dia de les Illes Balears",
+          "name": "Day of the Balearic Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-IB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-03-19",
+          "localName": "San José",
+          "name": "St. Joseph's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-04-14",
+          "localName": "Jueves Santo",
+          "name": "Maundy Thursday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN",
+              "ES-AR",
+              "ES-CL",
+              "ES-CM",
+              "ES-CN",
+              "ES-EX",
+              "ES-GA",
+              "ES-IB",
+              "ES-RI",
+              "ES-MD",
+              "ES-MC",
+              "ES-NC",
+              "ES-AS",
+              "ES-PV",
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-04-15",
+          "localName": "Viernes Santo",
+          "name": "Good Friday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-04-18",
+          "localName": "Lunes de Pascua",
+          "name": "Easter Monday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-IB",
+              "ES-RI",
+              "ES-NC",
+              "ES-PV",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-04-23",
+          "localName": "Día de Castilla y León",
+          "name": "Castile and León Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CL"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-04-23",
+          "localName": "San Jorge (Día de Aragón)",
+          "name": "Day of Aragón",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AR"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-05-01",
+          "localName": "Fiesta del trabajo",
+          "name": "Labour Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-05-02",
+          "localName": "Fiesta de la Comunidad de Madrid",
+          "name": "Day of Madrid",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MD"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-05-17",
+          "localName": "Día das Letras Galegas",
+          "name": "Galician Literature Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-GA"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-05-30",
+          "localName": "Día de Canarias",
+          "name": "Day of the Canary Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-05-31",
+          "localName": "Día de la Región Castilla-La Mancha",
+          "name": "Day of Castilla-La Mancha",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-06-06",
+          "localName": "Lunes de Pascua Granada",
+          "name": "Whit Monday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-06-09",
+          "localName": "Día de La Rioja",
+          "name": "Day of La Rioja",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-RI"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-06-09",
+          "localName": "Día de la Región de Murcia",
+          "name": "Day of Murcia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-06-16",
+          "localName": "Corpus Christi",
+          "name": "Corpus Christi",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-06-24",
+          "localName": "Sant Joan",
+          "name": "St. John's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-07-25",
+          "localName": "Santiago Apóstol",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-GA",
+              "ES-MD",
+              "ES-PV"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-07-28",
+          "localName": "Día de las Instituciones de Cantabria",
+          "name": "Day of the Cantabrian Institutions",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-08-15",
+          "localName": "Asunción",
+          "name": "Assumption",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-09-08",
+          "localName": "Día de Asturias",
+          "name": "Day of Asturias",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AS"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-09-08",
+          "localName": "Día de Extremadura",
+          "name": "Day of Extremadura",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-EX"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-09-11",
+          "localName": "Diada Nacional de Catalunya",
+          "name": "National Day of Catalonia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-09-15",
+          "localName": "La Bien Aparecida",
+          "name": "Regional Holiday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-10-09",
+          "localName": "Dia de la Comunitat Valenciana",
+          "name": "Day of the Valencian Community",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-10-12",
+          "localName": "Fiesta Nacional de España",
+          "name": "Fiesta Nacional de España",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-11-01",
+          "localName": "Día de todos los Santos",
+          "name": "All Saints Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-12-06",
+          "localName": "Día de la Constitución",
+          "name": "Constitution Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-12-08",
+          "localName": "Inmaculada Concepción",
+          "name": "Immaculate Conception",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-12-26",
+          "localName": "Navidad",
+          "name": "Christmas Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN",
+              "ES-AR",
+              "ES-AS",
+              "ES-CN",
+              "ES-CB",
+              "ES-CL",
+              "ES-CM",
+              "ES-EX",
+              "ES-GA",
+              "ES-IB",
+              "ES-RI",
+              "ES-MD",
+              "ES-MC",
+              "ES-NC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2022-12-26",
+          "localName": "St. Stephen's Day",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      }
+    ],
+    "2023" : [
+      {
+          "date": "2023-01-01",
+          "localName": "Año Nuevo",
+          "name": "New Year's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-01-01",
+          "localName": "Año Nuevo",
+          "name": "New Year's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN",
+              "ES-AR",
+              "ES-AS",
+              "ES-CL",
+              "ES-MC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-01-06",
+          "localName": "Día de Reyes / Epifanía del Señor",
+          "name": "Epiphany",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-02-21",
+          "localName": "Martes de Carnaval",
+          "name": "Carnival Tuesday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-EX"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-02-28",
+          "localName": "Día de Andalucía",
+          "name": "Day of Andalucía",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-03-01",
+          "localName": "Dia de les Illes Balears",
+          "name": "Day of the Balearic Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-IB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-03-20",
+          "localName": "San José",
+          "name": "St. Joseph's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MD"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-04-06",
+          "localName": "Jueves Santo",
+          "name": "Maundy Thursday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN",
+              "ES-AR",
+              "ES-CL",
+              "ES-CM",
+              "ES-CN",
+              "ES-EX",
+              "ES-GA",
+              "ES-IB",
+              "ES-RI",
+              "ES-MD",
+              "ES-MC",
+              "ES-NC",
+              "ES-AS",
+              "ES-PV",
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-04-07",
+          "localName": "Viernes Santo",
+          "name": "Good Friday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-04-10",
+          "localName": "Lunes de Pascua",
+          "name": "Easter Monday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-IB",
+              "ES-RI",
+              "ES-NC",
+              "ES-PV",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-04-24",
+          "localName": "San Jorge (Día de Aragón)",
+          "name": "Day of Aragón",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AR"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-05-01",
+          "localName": "Fiesta del trabajo",
+          "name": "Labour Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-05-02",
+          "localName": "Fiesta de la Comunidad de Madrid",
+          "name": "Day of Madrid",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MD"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-05-17",
+          "localName": "Día das Letras Galegas",
+          "name": "Galician Literature Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-GA"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-05-30",
+          "localName": "Día de Canarias",
+          "name": "Day of the Canary Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-05-31",
+          "localName": "Día de la Región Castilla-La Mancha",
+          "name": "Day of Castilla-La Mancha",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-06-08",
+          "localName": "Corpus Christi",
+          "name": "Corpus Christi",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-06-09",
+          "localName": "Día de La Rioja",
+          "name": "Day of La Rioja",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-RI"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-06-09",
+          "localName": "Día de la Región de Murcia",
+          "name": "Day of Murcia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-06-24",
+          "localName": "Sant Joan",
+          "name": "St. John's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-07-25",
+          "localName": "Santiago Apóstol",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CL",
+              "ES-GA",
+              "ES-NC",
+              "ES-PV"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-07-28",
+          "localName": "Día de las Instituciones de Cantabria",
+          "name": "Day of the Cantabrian Institutions",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-08-15",
+          "localName": "Asunción",
+          "name": "Assumption",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-09-08",
+          "localName": "Día de Asturias",
+          "name": "Day of Asturias",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AS"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-09-08",
+          "localName": "Día de Extremadura",
+          "name": "Day of Extremadura",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-EX"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-09-11",
+          "localName": "Diada Nacional de Catalunya",
+          "name": "National Day of Catalonia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-09-15",
+          "localName": "La Bien Aparecida",
+          "name": "Regional Holiday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-10-09",
+          "localName": "Dia de la Comunitat Valenciana",
+          "name": "Day of the Valencian Community",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-10-12",
+          "localName": "Fiesta Nacional de España",
+          "name": "Fiesta Nacional de España",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-11-01",
+          "localName": "Día de todos los Santos",
+          "name": "All Saints Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-12-06",
+          "localName": "Día de la Constitución",
+          "name": "Constitution Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-12-08",
+          "localName": "Inmaculada Concepción",
+          "name": "Immaculate Conception",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-12-25",
+          "localName": "Navidad",
+          "name": "Christmas Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2023-12-26",
+          "localName": "St. Stephen's Day",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      }
+    ],
+    "2024" : [
+      {
+          "date": "2024-01-01",
+          "localName": "Año Nuevo",
+          "name": "New Year's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-01-06",
+          "localName": "Día de Reyes / Epifanía del Señor",
+          "name": "Epiphany",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-02-28",
+          "localName": "Día de Andalucía",
+          "name": "Day of Andalucía",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-03-01",
+          "localName": "Dia de les Illes Balears",
+          "name": "Day of the Balearic Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-IB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-03-28",
+          "localName": "Jueves Santo",
+          "name": "Maundy Thursday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AN",
+              "ES-AR",
+              "ES-CL",
+              "ES-CM",
+              "ES-CN",
+              "ES-EX",
+              "ES-GA",
+              "ES-IB",
+              "ES-RI",
+              "ES-MD",
+              "ES-MC",
+              "ES-NC",
+              "ES-AS",
+              "ES-PV",
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-03-29",
+          "localName": "Viernes Santo",
+          "name": "Good Friday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-04-01",
+          "localName": "Lunes de Pascua",
+          "name": "Easter Monday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-IB",
+              "ES-RI",
+              "ES-NC",
+              "ES-PV",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-04-23",
+          "localName": "Día de Castilla y León",
+          "name": "Castile and León Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CL"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-04-23",
+          "localName": "San Jorge (Día de Aragón)",
+          "name": "Day of Aragón",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AR"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-05-01",
+          "localName": "Fiesta del trabajo",
+          "name": "Labour Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-05-02",
+          "localName": "Fiesta de la Comunidad de Madrid",
+          "name": "Day of Madrid",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MD"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-05-17",
+          "localName": "Día das Letras Galegas",
+          "name": "Galician Literature Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-GA"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-05-30",
+          "localName": "Corpus Christi",
+          "name": "Corpus Christi",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-05-30",
+          "localName": "Día de Canarias",
+          "name": "Day of the Canary Islands",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CN"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-05-31",
+          "localName": "Día de la Región Castilla-La Mancha",
+          "name": "Day of Castilla-La Mancha",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CM"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-06-09",
+          "localName": "Día de La Rioja",
+          "name": "Day of La Rioja",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-RI"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-06-09",
+          "localName": "Día de la Región de Murcia",
+          "name": "Day of Murcia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-MC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-06-24",
+          "localName": "Sant Joan",
+          "name": "St. John's Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT",
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-07-25",
+          "localName": "Santiago Apóstol",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-GA",
+              "ES-PV"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-07-28",
+          "localName": "Día de las Instituciones de Cantabria",
+          "name": "Day of the Cantabrian Institutions",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-08-15",
+          "localName": "Asunción",
+          "name": "Assumption",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-09-08",
+          "localName": "Día de Asturias",
+          "name": "Day of Asturias",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-AS"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-09-08",
+          "localName": "Día de Extremadura",
+          "name": "Day of Extremadura",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-EX"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-09-11",
+          "localName": "Diada Nacional de Catalunya",
+          "name": "National Day of Catalonia",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-09-15",
+          "localName": "La Bien Aparecida",
+          "name": "Regional Holiday",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CB"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-10-09",
+          "localName": "Dia de la Comunitat Valenciana",
+          "name": "Day of the Valencian Community",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-VC"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-10-12",
+          "localName": "Fiesta Nacional de España",
+          "name": "Fiesta Nacional de España",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-11-01",
+          "localName": "Día de todos los Santos",
+          "name": "All Saints Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-12-06",
+          "localName": "Día de la Constitución",
+          "name": "Constitution Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-12-08",
+          "localName": "Inmaculada Concepción",
+          "name": "Immaculate Conception",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-12-25",
+          "localName": "Navidad",
+          "name": "Christmas Day",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": true,
+          "counties": null,
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      },
+      {
+          "date": "2024-12-26",
+          "localName": "St. Stephen's Day",
+          "name": "Santiago Apóstol",
+          "countryCode": "ES",
+          "fixed": false,
+          "global": false,
+          "counties": [
+              "ES-CT"
+          ],
+          "launchYear": null,
+          "types": [
+              "Public"
+          ]
+      }
+    ]
+  }
+}
