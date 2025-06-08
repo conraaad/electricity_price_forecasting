@@ -1,1 +1,3 @@
-# Nothing at the moment
+# Python cache files
+__pycache__/
+*.pyc
