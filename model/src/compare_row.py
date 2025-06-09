@@ -1,13 +1,13 @@
 import pandas as pd
 import datetime
 
-def find_missing_dates():
+def find_missing_dates(path1, path2):
     # Load both datasets
-    def_dataset = pd.read_csv('../data/results/def_dataset.csv')
-    solar_data = pd.read_csv('../data/results/solar_data.csv')
+    def_dataset = pd.read_csv(path1)
+    solar_data = pd.read_csv(path2)
 
-    print(f"def_dataset has {len(def_dataset)} rows and {len(def_dataset.columns)} columns")
-    print(f"solar_data has {len(solar_data)} rows and {len(solar_data.columns)} columns")
+    print(f"Dataset 1 has {len(def_dataset)} rows and {len(def_dataset.columns)} columns")
+    print(f"Dataset 2 has {len(solar_data)} rows and {len(solar_data.columns)} columns")
     
     # Convert datetime_iso to datetime objects for easier comparison
     def_dataset['datetime'] = pd.to_datetime(def_dataset['datetime_iso'])
@@ -29,14 +29,14 @@ def find_missing_dates():
     # Find dates in solar_data but not in def_dataset
     missing_in_def = solar_datetimes - def_datetimes
     
-    print(f"Number of dates in def_dataset: {len(def_datetimes)}")
-    print(f"Number of dates in solar_data: {len(solar_datetimes)}")
+    print(f"Number of dates in Dataset 1: {len(def_datetimes)}")
+    print(f"Number of dates in Dataset 2: {len(solar_datetimes)}")
     
-    print("\nDates missing in solar_data but present in def_dataset:")
+    print("\nDates missing in Dataset 2 but present in Dataset 1:")
     for dt in sorted(missing_in_solar):
         print(dt)
     
-    print("\nDates missing in def_dataset but present in solar_data:")
+    print("\nDates missing in Dataset 1 but present in Dataset 2:")
     for dt in sorted(missing_in_def):
         print(dt)
     
@@ -62,21 +62,21 @@ def find_missing_dates():
         else:
             print(f"\nNo gaps in {dataset_name} hourly sequence.")
     
-    check_sequence_gaps(def_dates_list, "def_dataset")
-    check_sequence_gaps(solar_dates_list, "solar_data")
+    check_sequence_gaps(def_dates_list, "Dataset 1")
+    check_sequence_gaps(solar_dates_list, "Dataset 2")
     
     return missing_in_solar, missing_in_def
 
 
 
 
-def find_duplicates_and_differences():
+def find_duplicates_and_differences(path1, path2):
     # Load both datasets
-    def_dataset = pd.read_csv('../data/results/def_dataset.csv')
-    solar_data = pd.read_csv('../data/results/solar_data.csv')
+    def_dataset = pd.read_csv(path1)
+    solar_data = pd.read_csv(path2)
 
-    print(f"def_dataset has {len(def_dataset)} rows and {len(def_dataset.columns)} columns")
-    print(f"solar_data has {len(solar_data)} rows and {len(solar_data.columns)} columns")
+    print(f"Dataset 1 has {len(def_dataset)} rows and {len(def_dataset.columns)} columns")
+    print(f"Dataset 2 has {len(solar_data)} rows and {len(solar_data.columns)} columns")
     
     # Convert datetime_iso to datetime objects
     def_dataset['datetime'] = pd.to_datetime(def_dataset['datetime_iso'])
@@ -86,33 +86,33 @@ def find_duplicates_and_differences():
     def_dataset_dupes = def_dataset['datetime'].duplicated().sum()
     solar_data_dupes = solar_data['datetime'].duplicated().sum()
     
-    print(f"\nDuplicates in def_dataset: {def_dataset_dupes}")
-    print(f"Duplicates in solar_data: {solar_data_dupes}")
+    print(f"\nDuplicates in Dataset 1: {def_dataset_dupes}")
+    print(f"Duplicates in Dataset 2: {solar_data_dupes}")
     
     # If there are duplicates, show them
     if solar_data_dupes > 0:
-        print("\nDuplicate datetimes in solar_data:")
+        print("\nDuplicate datetimes in Dataset 2:")
         duplicates = solar_data[solar_data['datetime'].duplicated(keep=False)]
         print(duplicates.sort_values('datetime'))
     
     if def_dataset_dupes > 0:
-        print("\nDuplicate datetimes in def_dataset:")
+        print("\nDuplicate datetimes in Dataset 1:")
         duplicates = def_dataset[def_dataset['datetime'].duplicated(keep=False)]
         print(duplicates.sort_values('datetime'))
     
     # Also check the value counts for each datetime to see which ones appear multiple times
-    print("\nDatetimes occurring more than once in solar_data:")
+    print("\nDatetimes occurring more than once in Dataset 2:")
     duplicate_counts = solar_data['datetime'].value_counts()
     print(duplicate_counts[duplicate_counts > 1])
     
     # Check first and last rows of both datasets
     print("\nFirst rows of both datasets:")
-    print("def_dataset first row:", def_dataset['datetime'].min())
-    print("solar_data first row:", solar_data['datetime'].min())
+    print("Dataset 1 first row:", def_dataset['datetime'].min())
+    print("Dataset 2 first row:", solar_data['datetime'].min())
     
     print("\nLast rows of both datasets:")
-    print("def_dataset last row:", def_dataset['datetime'].max())
-    print("solar_data last row:", solar_data['datetime'].max())
+    print("Dataset 1 last row:", def_dataset['datetime'].max())
+    print("Dataset 2 last row:", solar_data['datetime'].max())
     
     # Compare row counts by date (without time) to see if a particular date has extra entries
     def_dataset['date'] = def_dataset['datetime'].dt.date
@@ -136,9 +136,11 @@ def find_duplicates_and_differences():
         print("No dates with different row counts found")
 
 
-print("Starting date comparison...")
 
-find_missing_dates()
 
-find_duplicates_and_differences()
+print("Starting date comparison...\n")
+
+find_missing_dates('../data/results/solar_data.csv', '../data/results/gas_data.csv')
+
+find_duplicates_and_differences('../data/results/solar_data.csv', '../data/results/gas_data.csv')
 
