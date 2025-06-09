@@ -2,9 +2,9 @@
 import json
 import pandas as pd
 
-csv_path = '../data/interchange_data.csv'
+csv_path = '../data/results/interchange_data.csv'
 
-with open('../data/intercambios.json', 'r', encoding='utf-8') as file:
+with open('../data/source/intercambios.json', 'r', encoding='utf-8') as file:
   intercambios = json.load(file)
 
 # Extract interchange data from the JSON
