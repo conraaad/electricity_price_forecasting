@@ -12,17 +12,8 @@ def find_missing_dates():
     # Convert datetime_iso to datetime objects for easier comparison
     def_dataset['datetime'] = pd.to_datetime(def_dataset['datetime_iso'])
     
-    # Check if solar_data has datetime_iso column
-    if 'datetime_iso' in solar_data.columns:
-        solar_data['datetime'] = pd.to_datetime(solar_data['datetime_iso'])
-    else:
-        # Try to find a column that might contain datetime information
-        datetime_columns = [col for col in solar_data.columns if 'date' in col.lower() or 'time' in col.lower()]
-        if datetime_columns:
-            solar_data['datetime'] = pd.to_datetime(solar_data[datetime_columns[0]])
-        else:
-            print("Could not find a datetime column in solar_data. Available columns:", solar_data.columns.tolist())
-            return
+    solar_data['datetime'] = pd.to_datetime(solar_data['datetime_iso'])
+    
     
     # Sort both datasets by datetime
     def_dataset = def_dataset.sort_values('datetime')
@@ -77,4 +68,77 @@ def find_missing_dates():
     return missing_in_solar, missing_in_def
 
 
+
+
+def find_duplicates_and_differences():
+    # Load both datasets
+    def_dataset = pd.read_csv('../data/results/def_dataset.csv')
+    solar_data = pd.read_csv('../data/results/solar_data.csv')
+
+    print(f"def_dataset has {len(def_dataset)} rows and {len(def_dataset.columns)} columns")
+    print(f"solar_data has {len(solar_data)} rows and {len(solar_data.columns)} columns")
+    
+    # Convert datetime_iso to datetime objects
+    def_dataset['datetime'] = pd.to_datetime(def_dataset['datetime_iso'])
+    solar_data['datetime'] = pd.to_datetime(solar_data['datetime_iso'])
+    
+    # Check for duplicates in both datasets
+    def_dataset_dupes = def_dataset['datetime'].duplicated().sum()
+    solar_data_dupes = solar_data['datetime'].duplicated().sum()
+    
+    print(f"\nDuplicates in def_dataset: {def_dataset_dupes}")
+    print(f"Duplicates in solar_data: {solar_data_dupes}")
+    
+    # If there are duplicates, show them
+    if solar_data_dupes > 0:
+        print("\nDuplicate datetimes in solar_data:")
+        duplicates = solar_data[solar_data['datetime'].duplicated(keep=False)]
+        print(duplicates.sort_values('datetime'))
+    
+    if def_dataset_dupes > 0:
+        print("\nDuplicate datetimes in def_dataset:")
+        duplicates = def_dataset[def_dataset['datetime'].duplicated(keep=False)]
+        print(duplicates.sort_values('datetime'))
+    
+    # Also check the value counts for each datetime to see which ones appear multiple times
+    print("\nDatetimes occurring more than once in solar_data:")
+    duplicate_counts = solar_data['datetime'].value_counts()
+    print(duplicate_counts[duplicate_counts > 1])
+    
+    # Check first and last rows of both datasets
+    print("\nFirst rows of both datasets:")
+    print("def_dataset first row:", def_dataset['datetime'].min())
+    print("solar_data first row:", solar_data['datetime'].min())
+    
+    print("\nLast rows of both datasets:")
+    print("def_dataset last row:", def_dataset['datetime'].max())
+    print("solar_data last row:", solar_data['datetime'].max())
+    
+    # Compare row counts by date (without time) to see if a particular date has extra entries
+    def_dataset['date'] = def_dataset['datetime'].dt.date
+    solar_data['date'] = solar_data['datetime'].dt.date
+    
+    def_counts = def_dataset['date'].value_counts().sort_index()
+    solar_counts = solar_data['date'].value_counts().sort_index()
+    
+    print("\nComparing row counts by date:")
+    date_comparison = pd.DataFrame({
+        'def_dataset': def_counts, 
+        'solar_data': solar_counts
+    }).fillna(0)
+    
+    date_comparison['difference'] = date_comparison['solar_data'] - date_comparison['def_dataset']
+    date_differences = date_comparison[date_comparison['difference'] != 0]
+    
+    if not date_differences.empty:
+        print(date_differences)
+    else:
+        print("No dates with different row counts found")
+
+
+print("Starting date comparison...")
+
 find_missing_dates()
+
+find_duplicates_and_differences()
+
