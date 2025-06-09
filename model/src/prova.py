@@ -24,7 +24,9 @@ def get_holiday(date):
 def main():
 
     # Define the path to your CSV file
+
     csv_path = '../data/demand_data.csv'
+    # csv_path_export = '../data/interchange_data.csv'
 
     # Check if the file exists
     if not os.path.exists(csv_path):
@@ -78,7 +80,7 @@ def main():
         # df['hour_cos'] = round(np.cos((2 * np.pi * df['hour']) / 24), 6)
 
 
-
+        # # Type of day classification
         # df['type_of_day'] = df['datetime_iso'].dt.date.apply(get_type_of_day)
 
         # # Type of day one hot encoding
@@ -87,21 +89,27 @@ def main():
         # for i, type_of_day in enumerate(type_of_days_list):  # type of day is 0-indexed (0 = workday)
         #     df[f'type_day_{type_of_day}'] = (df['type_of_day'] == i).astype(int)
 
+        # # Calculate holiday coefficient
 
-
-        df['holiday_coef'] = df['datetime_iso'].dt.date.apply(calcula_coeficient_festiu, json_data=festius_json)
+        # df['holiday_coef'] = df['datetime_iso'].dt.date.apply(calcula_coeficient_festiu, json_data=festius_json)
         # print(df['datetime_iso'].dt.date.apply(calcula_coeficient_festiu, json_data=festius_json))
 
+        # Create code here for interchange_balance
+        
 
+        
+        # Show the first few rows with the new column
+        print("\nDataFrame with interchange balance column:")
+        print(df[['datetime_iso', 'demand', 'interchange_balance']].head())
 
+        # Save the updated DataFrame back to CSV if needed
+        df.to_csv(csv_path, index=False) #TODO canviar el path
+        print(f"Updated DataFrame saved to {csv_path}")
 
         # Show the first few rows with the new columns
-        print("\nDataFrame with one-hot encoded month columns:")
         print(df.head())
         
-        # Save the updated DataFrame back to CSV if needed
-        df.to_csv(csv_path, index=False)
-        print(f"Updated DataFrame saved to {csv_path}")
+        
 
 
 
