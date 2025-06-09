@@ -100,6 +100,23 @@ def expand_daily_to_hourly(input_file, output_file):
     
     return hourly_df
 
+def add_temp_dev(df):
+    
+    print("Calculating temperature deviation...")
+    
+    
+    # Add a new column for temperature deviation
+    df['temp_dev'] = abs(df['temp'] - 22)  # Assuming 22 is the reference temperature
+    
+    # Round to 2 decimal places for consistency
+    df['temp_dev'] = df['temp_dev'].round(2)
+    
+    print("Temperature deviation added.")
+
+    df.to_csv('../data/results/temperatura_data_def.csv', index=False)
+    
+    return df
+
 # Define the file paths
 barna_file = '../data/source/temperatura/temp_barna.csv'
 madrid_file = '../data/source/temperatura/temp_mad.csv'
@@ -123,9 +140,13 @@ sevilla_file = '../data/source/temperatura/temp_sev.csv'
 # if sevilla_df is not None:
 #     print(sevilla_df.head())
 
-hourly_df = expand_daily_to_hourly('../data/results/temperatura_data.csv', '../data/results/temperatura_data_def.csv')
-    
+# hourly_df = expand_daily_to_hourly('../data/results/temperatura_data.csv', '../data/results/temperatura_data_def.csv')
+
+df = pd.read_csv('../data/results/temperatura_data.csv')
+
+df = add_temp_dev(df)
+
 print("\nSample of hourly temperature data:")
-print(hourly_df.head(24))
+print(df.head(24))
 
 print("\nProcess completed successfully!")
