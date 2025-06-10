@@ -2,7 +2,7 @@
 import json
 import pandas as pd
 
-csv_path = '../data/results/def_data/merged_def_dataset_solar.csv'
+csv_path = '../data/results/target_price_data.csv'
 
 # with open('../data/source/generacio_gas.json', 'r', encoding='utf-8') as file:
 #   solar_json = json.load(file)
@@ -14,8 +14,10 @@ df = pd.read_csv(csv_path)
 
 # df['residual_demand'] = round(df['demand'] - (df['solar'] + df['wind']), 4)
 
-df['solar_share_demand'] = round(df['solar'] / df['demand'], 4)
-df['wind_share_demand'] = round(df['wind'] / df['demand'], 4)
+# df['solar_share_demand'] = round(df['solar'] / df['demand'], 4)
+# df['wind_share_demand'] = round(df['wind'] / df['demand'], 4)
+
+df = df[['datetime_iso', 'price_es_24h', 'target_price']]
 
 
 
