@@ -140,7 +140,7 @@ def find_duplicates_and_differences(path1, path2):
 
 print("Starting date comparison...\n")
 
-find_missing_dates('../data/results/def_dataset.csv', '../data/results/target_price_data.csv')
+find_missing_dates('../data/results/def_dataset.csv', '../data/results/renda_imp_france.csv')
 
 # find_duplicates_and_differences('../data/results/solar_data.csv', '../data/results/temperatura_data_def.csv')
 

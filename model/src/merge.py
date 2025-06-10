@@ -1,10 +1,10 @@
 import pandas as pd
 
 
-export_path = '../data/results/def_gas.csv'
+export_path = '../data/results/def_data/merged_def_dataset_solar.csv'
 # Load both CSV files
-dataset_1_df = pd.read_csv('../data/results/gas_data.csv')
-dataset_2_df = pd.read_csv('../data/results/gas_price.csv')
+dataset_1_df = pd.read_csv('../data/results/def_dataset.csv')
+dataset_2_df = pd.read_csv('../data/results/solar_data.csv')
 
 # Make sure datetime columns are in the same format
 dataset_1_df['datetime_iso'] = pd.to_datetime(dataset_1_df['datetime_iso'])
