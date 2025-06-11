@@ -24,6 +24,7 @@ features_reduced = [
     'price_es_24h'
 ]
 
+df['target_price'] = df['target_price'].replace(0.0, 0.01)
 
 # Definim les variables d'entrada (X) i la variable objectiu (y)
 # feature_cols = [col for col in df.columns if col != 'target_price']
@@ -39,11 +40,12 @@ mae_scores, rmse_scores, smape_scores = [], [], []
 
 for i, (train_index, test_index) in enumerate(tscv.split(X)):
     X_train, X_val = X.iloc[train_index], X.iloc[test_index]
-    y_train, y_val = y_log.iloc[train_index], y.iloc[test_index]
+    y_train_log = np.log1p(y.iloc[train_index])
+    y_val = y.iloc[test_index]
 
     # Creació i entrenament del model
     model = RandomForestRegressor(n_estimators=100, random_state=42)
-    model.fit(X_train, y_train)
+    model.fit(X_train, y_train_log)
 
     # Predicció
     # y_pred = model.predict(X_val)
@@ -67,12 +69,12 @@ print("MAE mitjà:", np.mean(mae_scores))
 print("RMSE mitjà:", np.mean(rmse_scores))
 print("SMAPE mitjà:", np.mean(smape_scores) * 100, "%")  # en percentatge
 
-# print("\nErrors per split:")
-# plt.plot(mae_scores, label="MAE")
-# plt.plot(rmse_scores, label="RMSE")
-# plt.plot(smape_scores, label="MAPE")
-# plt.legend()
-# plt.title("Rendiment del model per split")
-# plt.xlabel("Split temporal")
-# plt.ylabel("Error")
-# plt.show()
+print("\nErrors per split:")
+plt.plot(mae_scores, label="MAE")
+plt.plot(rmse_scores, label="RMSE")
+plt.plot(smape_scores, label="MAPE")
+plt.legend()
+plt.title("Rendiment del model per split")
+plt.xlabel("Split temporal")
+plt.ylabel("Error")
+plt.show()

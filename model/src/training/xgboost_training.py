@@ -1,5 +1,6 @@
 
 
+from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 import xgboost as xgb
@@ -8,7 +9,7 @@ from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
 from metrics_utils import smape, analyze_worst_predictions
 
-df = pd.read_csv("../../data/def_data/training_dataset_no_2021.csv")
+df = pd.read_csv("../../data/def_data/training_dataset_2024.csv")
 
 df['gas_generation_share'] = round(df['gas_generation'] / df['demand'], 4)
 
@@ -31,6 +32,7 @@ all_features = [col for col in df.columns if col != 'target_price']
 
 X = df[features_reduced]  # o les 40 si vols comparar
 y = df['target_price']
+y_log = np.log1p(y)
 
 # Crear llistes per emmagatzemar les mètriques
 mae_scores, rmse_scores, smape_scores = [], [], []
@@ -58,7 +60,8 @@ for i, (train_index, test_index) in enumerate(tscv.split(X)):
     y_pred = model.predict(X_val)
 
     # Només analitzem els errors del darrer split (o escull un altre)
-    if i == tscv.get_n_splits() - 1:
+    # if i == tscv.get_n_splits() - 1:
+    if i == 3:  
         analysis_df = analyze_worst_predictions(y_val, y_pred, X_val)
         print("Mostrant els 10 pitjors errors de predicció:")
         print(analysis_df)
@@ -74,3 +77,12 @@ print("RESUM DE RENDIMENT DEL MODEL:\n")
 print("MAE mitjà:", np.mean(mae_scores))
 print("RMSE mitjà:", np.mean(rmse_scores))
 print("SMAPE mitjà:", np.mean(smape_scores) * 100, "%")
+
+plt.plot(mae_scores, label="MAE")
+plt.plot(rmse_scores, label="RMSE")
+plt.plot(smape_scores, label="SMAPE")
+plt.legend()
+plt.title("Rendiment del model per split")
+plt.xlabel("Split temporal")
+plt.ylabel("Error")
+plt.show()
