@@ -31,5 +31,7 @@ def analyze_worst_predictions(y_true, y_pred, X_val):
     
     # Sort by relative error and get top 10
     worst = result.sort_values(by='abs_error', ascending=False).head(20)
+
+    worst.to_csv("../../data/analysis/worst_predictions.csv", index=False)
     
     return worst
