@@ -7,24 +7,28 @@ import matplotlib.pyplot as plt
 
 from metrics_utils import smape, analyze_worst_predictions
 
-df = pd.read_csv("../../data/def_data/training_dataset.csv")
+df = pd.read_csv("../../data/def_data/training_dataset_2024.csv")
 
 df['gas_generation_share'] = round(df['gas_generation'] / df['demand'], 4)
+df['target_price'] = abs(df['target_price'])  # Evitar preus negatius
+df['renewable_ratio'] = round((df['solar'] + df['wind']) / df['demand'], 4)
+
 
 features_reduced = [
     # 'day_sin', 'day_cos',       # Codificació cíclica del dia
-    'month_1','month_2','month_3','month_4','month_5','month_6','month_7','month_8','month_9','month_10','month_11','month_12',
+    'is_mond', 'is_tues','is_wed','is_thurs','is_fri','is_sat','is_sun',  # Indicadors de dia de la setmana 
+    # 'month_1','month_2','month_3','month_4','month_5','month_6','month_7','month_8','month_9','month_10','month_11','month_12',
     'hour_sin', 'hour_cos',     # Codificació cíclica de l’hora
     'type_day_workday','type_day_sat','type_day_sun','type_day_holiday','holiday_coef',             # Percentatge de població en festiu
     'demand', 'solar_share_demand', 'wind_share_demand',  # Valors bruts
     'gas_generation_share', 'gas_price',
     'residual_demand',
     'interchange_balance',
+    'renewable_ratio',
     'temp_dev',
     'price_es_24h'
 ]
 
-df['target_price'] = df['target_price'].replace(0.0, 0.01)
 
 # Definim les variables d'entrada (X) i la variable objectiu (y)
 # feature_cols = [col for col in df.columns if col != 'target_price']
@@ -44,7 +48,7 @@ for i, (train_index, test_index) in enumerate(tscv.split(X)):
     y_val = y.iloc[test_index]
 
     # Creació i entrenament del model
-    model = RandomForestRegressor(n_estimators=100, random_state=42)
+    model = RandomForestRegressor(n_estimators=150, random_state=42)
     model.fit(X_train, y_train_log)
 
     # Predicció
@@ -58,7 +62,7 @@ for i, (train_index, test_index) in enumerate(tscv.split(X)):
     smape_scores.append(smape(y_val, y_pred))
 
     # Només analitzem els errors del darrer split (o escull un altre)
-    if i == tscv.get_n_splits() - 1:
+    if i == 4:
         analysis_df = analyze_worst_predictions(y_val, y_pred, X_val)
         print("Mostrant els 10 pitjors errors de predicció:")
         print(analysis_df)

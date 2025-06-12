@@ -12,6 +12,7 @@ df = pd.read_csv("../../data/def_data/training_dataset_2024.csv")
 df['gas_generation_share'] = round(df['gas_generation'] / df['demand'], 4)
 df['is_zero'] = (df['target_price'] == 0).astype(int)
 df['target_price'] = df['target_price'].replace(0.0, 0.01)
+df['target_price'] = abs(df['target_price'])  # Avoid negative prices
 
 features_reduced = [
     # 'day_sin', 'day_cos',                         # Codificació cíclica del dia

@@ -30,6 +30,6 @@ def analyze_worst_predictions(y_true, y_pred, X_val):
     result = pd.concat([error_df, X_val], axis=1)
     
     # Sort by relative error and get top 10
-    worst = result.sort_values(by='rel_error', ascending=False).head(20)
+    worst = result.sort_values(by='abs_error', ascending=False).head(20)
     
     return worst
