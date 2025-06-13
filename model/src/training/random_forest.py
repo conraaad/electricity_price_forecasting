@@ -1,3 +1,4 @@
+from joblib import dump
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -90,12 +91,14 @@ print("MAE mitjà:", np.mean(mae_scores))
 print("RMSE mitjà:", np.mean(rmse_scores))
 print("SMAPE mitjà:", np.mean(smape_scores) * 100, "%")  # en percentatge
 
-print("\nErrors per split:")
-plt.plot(mae_scores, label="MAE")
-plt.plot(rmse_scores, label="RMSE")
-plt.plot(smape_scores, label="SMAPE")
-plt.legend()
-plt.title("Rendiment del model per split")
-plt.xlabel("Split temporal")
-plt.ylabel("Error")
-plt.show()
+dump(model, '../predict_final/models/random_forest_model.joblib')
+
+# print("\nErrors per split:")
+# plt.plot(mae_scores, label="MAE")
+# plt.plot(rmse_scores, label="RMSE")
+# plt.plot(smape_scores, label="SMAPE")
+# plt.legend()
+# plt.title("Rendiment del model per split")
+# plt.xlabel("Split temporal")
+# plt.ylabel("Error")
+# plt.show()
