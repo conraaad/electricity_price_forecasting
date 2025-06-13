@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -24,7 +25,10 @@ def get_day_features(date_string: str):
               Format: {0: [feature1, feature2, ...], 1: [...], ..., 23: [...]}
     """
     # Load the test data
-    df = pd.read_csv("../../data/analysis/test_data.csv")
+    # df = pd.read_csv("../../data/analysis/test_data.csv")
+    base_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+    csv_path = os.path.join(base_path, "model/data/analysis/test_data.csv")
+    df = pd.read_csv(csv_path)
     # df = pd.read_csv("../../../data/datasets/def_dataset.csv")
 
     # Apply the same feature engineering as in training
@@ -139,6 +143,7 @@ def predict_from_model_and_date(model_path, date_string):
     result = {
         "name_model": model_path.split('/')[-1].split('.')[0],
         "date": date_string,
+        "daily_mean": {},
         'hour_predictions': {}
     }
 

@@ -9,10 +9,13 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 import json
 
+from core.utils import get_random_date_2023
 from src.predict_final.predict_random_forest import predict_from_model_and_date
 
 
 from .models import User
+
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def health_check(request):
     health_status = {
@@ -57,16 +60,18 @@ class PredictView(View):
             return JsonResponse({'error': 'Unauthorized: API key is required'}, status=401)
 
         try:
-            # Get date from query parameters (default to a test date)
-            date = request.GET.get('date', '2023-10-04')
+            # date = '2023-10-01'
+
+            #get random date within 2023
+            date = get_random_date_2023()
             
             # Call the prediction function
-            prediction_result = predict_from_model_and_date(date)
+            model_path = os.path.join(ROOT_DIR, '../model/src/predict_final/models/random_forest_model.joblib')
+
+            predictions = predict_from_model_and_date(model_path, date)
+            print(f"Model path: {model_path}")
             
-            return JsonResponse({
-                'date': date,
-                'prediction': prediction_result
-            }, status=200)
+            return JsonResponse(predictions, status=200)
             
         except Exception as e:
             return JsonResponse({'error': f'Prediction failed: {str(e)}'}, status=500)

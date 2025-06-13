@@ -131,3 +131,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 APPEND_SLASH = False
+
+import sys
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  # electricity_price_forecasting
+sys.path.append(str(BASE_DIR / "model"))
