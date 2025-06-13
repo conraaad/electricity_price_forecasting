@@ -128,7 +128,7 @@ Aquesta és la resposta de la petició `/predict` per al dia 2023-10-04 (dia del
 
 ## 🧑🏼‍💻 Autor
 
-Aquest projecte ha estat desenvolupat per Conrad Puig i Arimon com a part del seu Treball de Fi de Grau en Enginyeria Informàtica.
+Aquest projecte ha estat desenvolupat per en Conrad Puig i Arimon com a part del seu Treball de Fi de Grau en Enginyeria Informàtica.
 
 ## 📄 Llicència
 
