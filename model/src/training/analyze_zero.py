@@ -284,7 +284,7 @@ def plot_price_distribution_analysis(df: pd.DataFrame) -> None:
 # Main execution
 if __name__ == "__main__":
     # Load your data
-    df = pd.read_csv("../../data/def_data/training_dataset_2024.csv")
+    df = pd.read_csv("../../data/datasets/training_dataset_2024.csv")
     
     df['gas_generation_share'] = round(df['gas_generation'] / df['demand'], 4)
     df['target_price'] = abs(df['target_price'])  # Evitar preus negatius
@@ -292,9 +292,12 @@ if __name__ == "__main__":
     df['is_sunday_or_holiday'] = ((df['is_sun'] == 1) | (df['type_day_holiday'] == 1)).astype(int)
     df['high_renewable_ratio'] = (df['renewable_ratio'] > 0.8).astype(int)
     df['low_demand'] = (df['demand'] < df['demand'].quantile(0.2)).astype(int)
-    df['wind_to_solar_ratio'] = df['wind_share_demand'] / (df['solar_share_demand'] + 1e-5)
+    # df['wind_to_solar_ratio'] = df['wind_share_demand'] / (df['solar_share_demand'] + 1e-5)
     df['renewables_to_gas'] = (df['solar_share_demand'] + df['wind_share_demand']) / (df['gas_generation_share'] + 1e-5)
     df['demand_per_gas'] = df['demand'] / (df['gas_generation_share'] + 1e-5)
+    # df['price_es_24h'] = np.log1p(df['price_es_24h'])
+    df["price_rolling_3h"] = df["target_price"].rolling(window=3).mean().shift(1)
+    df["gas_price_lag1"] = df["gas_price"].shift(24)
 
     features_reduced = [
         # 'day_sin', 'day_cos',       # Codificació cíclica del dia
@@ -313,9 +316,11 @@ if __name__ == "__main__":
         'high_renewable_ratio',
         'temp_dev',
         'price_es_24h',
-        'wind_to_solar_ratio',
+        # 'wind_to_solar_ratio',
         'renewables_to_gas',
-        'demand_per_gas'
+        'demand_per_gas',
+        'price_rolling_3h',
+        'gas_price_lag1'
     ]
     
     print("Dataset shape:", df.shape)

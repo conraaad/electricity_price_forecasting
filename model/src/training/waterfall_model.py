@@ -1,11 +1,11 @@
-from matplotlib import pyplot as plt
 import pandas as pd
-from sklearn.model_selection import TimeSeriesSplit
-from sklearn.metrics import mean_absolute_error, root_mean_squared_error
-import xgboost as xgb
 import numpy as np
-from metrics_utils import smape, analyze_worst_predictions
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.metrics import mean_absolute_error, root_mean_squared_error, mean_absolute_percentage_error
+from sklearn.model_selection import TimeSeriesSplit
+import matplotlib.pyplot as plt
 
+from metrics_utils import smape
 
 df = pd.read_csv("../../data/datasets/training_dataset_2024.csv")
 
@@ -28,7 +28,7 @@ features_reduced = [
     'is_mond', 'is_tues','is_wed','is_thurs','is_fri','is_sat','is_sun',  # Indicadors de dia de la setmana 
     'is_sunday_or_holiday',
     # 'month_1','month_2','month_3','month_4','month_5','month_6','month_7','month_8','month_9','month_10','month_11','month_12',
-    'hour_sin', 'hour_cos',     # Codificació cíclica de l’hora
+    'hour_sin', 'hour_cos',     # Codificació cíclica de l'hora
     'type_day_workday','type_day_sat','type_day_sun','type_day_holiday',
     'holiday_coef',             # Percentatge de població en festiu
     'demand', 'low_demand',  # Indicador de baixa demanda
@@ -69,39 +69,39 @@ for i, (train_idx, val_idx) in enumerate(tscv.split(X)):
     y_val_zero = y_zero.iloc[val_idx]
 
     # Check class distribution
-    print(f"Split {train_idx}: Zero prices: {y_train_zero.sum()}/{len(y_train_zero)} ({y_train_zero.mean():.2%})")
+    print(f"Split {i}: Zero prices: {y_train_zero.sum()}/{len(y_train_zero)} ({y_train_zero.mean():.2%})")
     
     # Skip waterfall approach if too few zero prices
     if y_train_zero.sum() < 5:  # Less than 5 zero prices
         print("Too few zero prices, using direct regression...")
         
         # Use direct regression instead
-        reg = xgb.XGBRegressor(
-            n_estimators=100,
-            max_depth=6,
-            learning_rate=0.1,
-            subsample=0.8,
-            colsample_bytree=0.8,
-            random_state=42
+        reg = RandomForestRegressor(
+            n_estimators=150,
+            max_depth=10,
+            min_samples_split=5,
+            min_samples_leaf=2,
+            random_state=42,
+            n_jobs=-1
         )
         reg.fit(X_train, y_train_price)
         y_pred_combined = reg.predict(X_val)
         
     else:
-        # Fase 1: entrenar classificador amb scale_pos_weight per balancejar
-        pos_weight = (len(y_train_zero) - y_train_zero.sum()) / y_train_zero.sum()
+        # Fase 1: entrenar classificador Random Forest per detectar zeros
+        # Calculate class weights to handle imbalanced data
+        n_zeros = y_train_zero.sum()
+        n_non_zeros = len(y_train_zero) - n_zeros
+        class_weight = {0: 1.0, 1: n_non_zeros / n_zeros if n_zeros > 0 else 1.0}
         
-        clf = xgb.XGBClassifier(
+        clf = RandomForestClassifier(
             n_estimators=100,
-            max_depth=4,
-            learning_rate=0.1,
-            subsample=0.8,
-            colsample_bytree=0.8,
-            objective='binary:logistic',
-            scale_pos_weight=pos_weight,  # Balance classes
-            use_label_encoder=False,
-            eval_metric='logloss',
+            max_depth=8,
+            min_samples_split=5,
+            min_samples_leaf=2,
+            class_weight=class_weight,  # Balance classes
             random_state=42,
+            n_jobs=-1
         )
         clf.fit(X_train, y_train_zero)
 
@@ -109,13 +109,13 @@ for i, (train_idx, val_idx) in enumerate(tscv.split(X)):
         X_train_reg = X_train[y_train_price > 0]
         y_train_reg = y_train_price[y_train_price > 0]
 
-        reg = xgb.XGBRegressor(
-            n_estimators=100,
-            max_depth=6,
-            learning_rate=0.1,
-            subsample=0.8,
-            colsample_bytree=0.8,
-            random_state=42
+        reg = RandomForestRegressor(
+            n_estimators=150,
+            max_depth=12,
+            min_samples_split=5,
+            min_samples_leaf=2,
+            random_state=42,
+            n_jobs=-1
         )
         reg.fit(X_train_reg, y_train_reg)
 
@@ -144,13 +144,16 @@ print("RESUM DE RENDIMENT DEL MODEL:\n")
 
 print("MAE mitjà:", np.mean(mae_scores))
 print("RMSE mitjà:", np.mean(rmse_scores))
-print("SMAPE mitjà:", np.mean(smape_scores) * 100, "%")  # en percentatge
+print("SMAPE mitjà:", np.mean(smape_scores), "%")
 
-plt.plot(mae_scores, label="MAE")
-plt.plot(rmse_scores, label="RMSE")
-plt.plot(smape_scores, label="SMAPE")
+print("\nErrors per split:")
+plt.figure(figsize=(10, 6))
+plt.plot(mae_scores, 'o-', label="MAE", marker='o')
+plt.plot(rmse_scores, 's-', label="RMSE", marker='s')
+plt.plot([s for s in smape_scores], '^-', label="SMAPE", marker='^')
 plt.legend()
 plt.title("Rendiment del model per split")
 plt.xlabel("Split temporal")
 plt.ylabel("Error")
+plt.grid(True, alpha=0.3)
 plt.show()
