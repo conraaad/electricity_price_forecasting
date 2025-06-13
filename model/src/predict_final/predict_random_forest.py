@@ -24,7 +24,7 @@ def get_day_features(date_string: str):
               Format: {0: [feature1, feature2, ...], 1: [...], ..., 23: [...]}
     """
     # Load the test data
-    df = pd.read_csv("../../../data/analysis/test_data.csv")
+    df = pd.read_csv("../../data/analysis/test_data.csv")
     # df = pd.read_csv("../../../data/datasets/def_dataset.csv")
 
     # Apply the same feature engineering as in training
