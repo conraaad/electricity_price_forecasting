@@ -20,7 +20,7 @@ Les dades cobreixen el període **del 16 d’agost de 2021 al 15 de setembre de 
 Les **features seleccionades** finalment per a l'entrenament inclouen indicadors horaris, de demanda, de generació renovable, costos del gas, desequilibris i informació exògena com el calendari:
 
 ```python
-features_reduced = [
+features = [
     'is_mond', 'is_tues','is_wed','is_thurs','is_fri','is_sat','is_sun',
     'is_sunday_or_holiday',
     'hour_sin', 'hour_cos',
