@@ -77,6 +77,35 @@ Un cop entrenat i validat el model, aquest s’ha integrat dins d’un servei we
 
 L’API ha estat desenvolupada amb FastAPI i exposa un endpoint `/predict` que retorna el preu horari estimat basat en dades existents, en aquest cas al ser una prova s'utlitzaran les dades del test.
 
+Aquesta és la resposta de la petició `/predict` per al dia 2023-10-04 (dia del dataset de testing):
+
+````json
+{
+    'name_model': "random_forest_model",
+    'date': "2023-10-04",
+    'hour_predictions': {
+        0 : {
+            'predicted_price': float, 
+            'mae': float, 
+            'rmse': float,
+            'smape': float
+        },
+        ...
+        23 : {
+            'predicted_price': float, 
+            'mae': float, 
+            'rmse': float,
+            'smape': float
+        },
+    },
+    'daily_mean': {
+        'mae': float,
+        'rmse': float,
+        'smape': float
+    }
+}
+````
+
 ## 📁 Estructura del repositori
 
 
