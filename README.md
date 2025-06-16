@@ -75,9 +75,9 @@ Executa el fitxer que vulguis de `model/src/predict_final/*.py` per obtenir els 
 
 Un cop entrenat i validat el model, aquest s’ha integrat dins d’un servei web lleuger que permet fer prediccions a demanda mitjançant peticions HTTP. Aquest servei està pensat per ser consumit fàcilment des d’un client (frontend, app industrial o servei d’automatització).
 
-L’API ha estat desenvolupada amb FastAPI i exposa un endpoint `/predict` que retorna el preu horari estimat basat en dades existents, en aquest cas al ser una prova s'utlitzaran les dades del test.
+L’API ha estat desenvolupada amb Django i exposa un endpoint `/predict` que retorna el preu horari estimat basat en dades existents, en aquest cas al ser una prova s'utlitzaran les dades del test.
 
-Aquesta és la resposta de la petició `/predict` per al dia 2023-10-04 (dia del dataset de testing):
+Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-04 (dia del dataset de testing):
 
 ````json
 {
@@ -105,6 +105,17 @@ Aquesta és la resposta de la petició `/predict` per al dia 2023-10-04 (dia del
     }
 }
 ````
+
+### Per executar el projecte el servei en local:
+
+1. Situar-se al directori `/service`.
+2. Executar el següent:
+
+    ````bash
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
+    ````
 
 ## 📁 Estructura del repositori
 
