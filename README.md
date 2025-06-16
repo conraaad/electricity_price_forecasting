@@ -79,7 +79,7 @@ L’API ha estat desenvolupada amb Django i exposa un endpoint `/predict` que re
 
 Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-04 (dia del dataset de testing):
 
-````json
+````
 {
     'name_model': "random_forest_model",
     'date': "2023-10-04",
