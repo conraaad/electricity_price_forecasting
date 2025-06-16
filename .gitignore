@@ -1,3 +1,14 @@
 # Python cache files
 __pycache__/
 *.pyc
+
+# Django migrations
+db.sqlite3
+*.sqlite3
+
+# Django static files
+static/
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
