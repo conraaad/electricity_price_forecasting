@@ -12,3 +12,5 @@ static/
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+/front
