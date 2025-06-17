@@ -104,7 +104,7 @@ class FeaturesView(View):
         try:
             # Your features implementation will go here
             result, features_names = get_day_features(date)
-            return JsonResponse({'date': date, 'features_names': features_names, 'features': result}, status=200)
+            return JsonResponse({'date': date, 'features_names': features_names, 'hours': result}, status=200)
             
         except Exception as e:
             return JsonResponse({'error': f'Features processing failed: {str(e)}'}, status=500)
