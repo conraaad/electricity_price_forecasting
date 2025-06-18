@@ -19,10 +19,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late Future<bool> _fetchFuture;
   late User? user;
-  // final User user = User(
-  //   email: "conrad@hola.cat",
-  //   apiKey: "e99e6cc3-ff0b-4a0e-8271-5ad2e2b1077c",
-  // );
 
 
   @override
@@ -124,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
 
                       CardContainer(
-                        width: 480,
+                        width: double.infinity,
                         child: Column(
                           children: [
                             Text(
