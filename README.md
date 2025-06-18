@@ -39,8 +39,8 @@ features = [
 
 S’han explorat diferents estratègies de modelització, amb i sense transformació logarítmica, i una estratègia *waterfall* que adapta el model al pas del temps:
 
-|Model                      |	MAE (€/MWh) |	RMSE (€/MWh)	| SMAPE (%) |
-|---------------------------|-------------|---------------|-----------|
+|Model                      |	MAE (€/MWh) |	RMSE (€/MWh)  | SMAPE (%) |
+|---------------------------|---------------|-----------------|-----------|
 |XGBoost Log Transform      |	10,8684     |	15,2534       |	61,1776   |
 |XGBoost Waterfall          |	10,9118     |	14,5434       |	14,5434   |
 |Random Forest Direct       |	9,6574      |	13,5126       |	58,1682   |
@@ -55,7 +55,7 @@ S’ha utilitzat `TimeSeriesSplit` de `scikit-learn` per aplicar validació creu
 
 ### Requisits:
 - Python 3.10+
-- `scikit-learn`, `xgboost`, `pandas`, `numpy`, `matplotlib`, `joblib`
+- `scikit-learn`, `xgboost`, `pandas`, `numpy`, `matplotlib`, `joblib`, `django`
 
 Per instal·lar totes les dependències d'aques projecte pot executar:
 
@@ -79,7 +79,7 @@ L’API ha estat desenvolupada amb Django i exposa un endpoint `/predict` que re
 
 Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-04 (dia del dataset de testing):
 
-````json
+````
 {
     'name_model': "random_forest_model",
     'date': "2023-10-04",
@@ -131,6 +131,30 @@ Aquesta aplicació consumeix el servei REST exposat pel backend Django, i permet
 - 🎯 Presentació de les mètriques d’error associades
 
 **Nota:** Aquesta part queda fora de l’abast acadèmic de la memòria i no es recull amb detall en aquest document, però ha estat desenvolupada com a suport visual per a la defensa i com a eina pràctica per a la prova del sistema.
+
+### Execució de producció del front
+
+Per executar el frontend web compilat en local, segueix els passos següents:
+
+1. Compila la versió optimitzada del frontend. Això generarà els fitxers al directori build/web.
+    Des del directori arrel del projecte Flutter:
+    ```
+    flutter build web
+    ```
+
+2. Serveix l’aplicació web compilada amb Python (port 8080)
+
+    ```
+    cd build/web
+    python -m http.server 8080
+    ```
+
+    Després obre el navegador i accedeix a:
+
+    ```
+    http://localhost:8080
+    ```
+Aquest mètode et permet visualitzar la versió final de la interfície en un navegador de manera lleugera, sense necessitat de cap servidor addicional.
 
 ## 📁 Estructura del repositori
 
