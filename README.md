@@ -117,6 +117,21 @@ Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-0
     python manage.py runserver
     ````
 
+## 💻 Interfície Web amb Flutter
+
+Tot i que el desenvolupament del client no formava part dels objectius directes d’aquest Treball de Fi de Grau, s’ha implementat una interfície web amb Flutter Web amb l’objectiu de facilitar la presentació del projecte i mostrar el funcionament del servei en temps real.
+
+Aquesta aplicació consumeix el servei REST exposat pel backend Django, i permet a qualsevol usuari registrat (a través del seu correu electrònic) obtenir les prediccions horàries del mercat elèctric d’un dia concret. També mostra mètriques d’error per hora (MAE, RMSE, SMAPE) i permet visualitzar les variables d’entrada utilitzades pel model per a cada predicció.
+
+#### Característiques principals:
+- 🌐 Desenvolupat amb Flutter Web (exclusivament per navegadors d’escriptori)
+- 📩 Formulari de registre simple amb validació de correu
+- 📈 Visualització del preu predit per hora amb gràfic interactiu
+- 🧠 Detall de les features utilitzades en cada hora
+- 🎯 Presentació de les mètriques d’error associades
+
+**Nota:** Aquesta part queda fora de l’abast acadèmic de la memòria i no es recull amb detall en aquest document, però ha estat desenvolupada com a suport visual per a la defensa i com a eina pràctica per a la prova del sistema.
+
 ## 📁 Estructura del repositori
 
 
@@ -131,6 +146,7 @@ Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-0
 │       ├── predict_final/           # Models entrenats
 │       └── training/                # Codi per l'entrenament dels models
 ├── service/                         # Servei REST
+├── front/                           # Interfície web
 ├── .gitignore
 ├── LICENSE
 ├── README
