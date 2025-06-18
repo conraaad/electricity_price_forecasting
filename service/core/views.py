@@ -1,5 +1,7 @@
 import os
 import sys
+import re
+from datetime import datetime
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -10,8 +12,7 @@ from django.core.exceptions import ValidationError
 import json
 
 from core.utils import get_random_date_2023
-from src.predict_final.predict_random_forest import predict_from_model_and_date
-
+from src.predict_final.predict_random_forest import predict_from_model_and_date, get_day_features
 
 from .models import User
 
@@ -75,3 +76,35 @@ class PredictView(View):
             
         except Exception as e:
             return JsonResponse({'error': f'Prediction failed: {str(e)}'}, status=500)
+
+class FeaturesView(View):
+    def get(self, request):
+        api_key = request.headers.get('Authorization')
+
+        if not api_key or not User.objects.filter(api_key=api_key).exists():
+            return JsonResponse({'error': 'Unauthorized: API key is required'}, status=401)
+
+        date = request.GET.get('date')
+
+        if not date:
+            return JsonResponse({'error': 'Date parameter is required'}, status=400)
+
+        # Validate date format (yyyy-mm-dd)
+        date_pattern = r'^\d{4}-\d{2}-\d{2}$'
+        if not re.match(date_pattern, date):
+            return JsonResponse({'error': 'Invalid date format. Use YYYY-MM-DD format'}, status=400)
+
+        # Additional validation to check if the date is valid
+        try:
+            datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            return JsonResponse({'error': 'Invalid date. Please provide a valid date in YYYY-MM-DD format'}, status=400)
+
+        # TODO: Add your features logic here
+        try:
+            # Your features implementation will go here
+            result, features_names = get_day_features(date)
+            return JsonResponse({'date': date, 'features_names': features_names, 'hours': result}, status=200)
+            
+        except Exception as e:
+            return JsonResponse({'error': f'Features processing failed: {str(e)}'}, status=500)
