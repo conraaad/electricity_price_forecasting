@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 //* Columna Dreta
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
                   // color: Colors.blue,
                   width: MediaQuery.of(context).size.width * 0.6 - 40 * 2,
                   child: Column(
