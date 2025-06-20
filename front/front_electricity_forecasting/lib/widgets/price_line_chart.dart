@@ -11,7 +11,7 @@ class PriceLineChart extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1.6,
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(15),
         child: LineChart(
           LineChartData(
             backgroundColor: Colors.white,

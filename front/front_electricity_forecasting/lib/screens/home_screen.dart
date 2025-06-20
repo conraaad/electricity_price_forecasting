@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         title: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 25),
@@ -292,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
 
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 30),
 
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
