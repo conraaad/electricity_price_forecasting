@@ -39,8 +39,8 @@ features = [
 
 S’han explorat diferents estratègies de modelització, amb i sense transformació logarítmica, i una estratègia *waterfall* que adapta el model al pas del temps:
 
-|Model                      |	MAE (€/MWh) |	RMSE (€/MWh)	| SMAPE (%) |
-|---------------------------|-------------|---------------|-----------|
+|Model                      |	MAE (€/MWh) |	RMSE (€/MWh)  | SMAPE (%) |
+|---------------------------|---------------|-----------------|-----------|
 |XGBoost Log Transform      |	10,8684     |	15,2534       |	61,1776   |
 |XGBoost Waterfall          |	10,9118     |	14,5434       |	14,5434   |
 |Random Forest Direct       |	9,6574      |	13,5126       |	58,1682   |
@@ -55,7 +55,7 @@ S’ha utilitzat `TimeSeriesSplit` de `scikit-learn` per aplicar validació creu
 
 ### Requisits:
 - Python 3.10+
-- `scikit-learn`, `xgboost`, `pandas`, `numpy`, `matplotlib`, `joblib`
+- `scikit-learn`, `xgboost`, `pandas`, `numpy`, `matplotlib`, `joblib`, `django`
 
 Per instal·lar totes les dependències d'aques projecte pot executar:
 
@@ -117,6 +117,45 @@ Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-0
     python manage.py runserver
     ````
 
+## 💻 Interfície Web amb Flutter
+
+Tot i que el desenvolupament del client no formava part dels objectius directes d’aquest Treball de Fi de Grau, s’ha implementat una interfície web amb Flutter Web amb l’objectiu de facilitar la presentació del projecte i mostrar el funcionament del servei en temps real.
+
+Aquesta aplicació consumeix el servei REST exposat pel backend Django, i permet a qualsevol usuari registrat (a través del seu correu electrònic) obtenir les prediccions horàries del mercat elèctric d’un dia concret. També mostra mètriques d’error per hora (MAE, RMSE, SMAPE) i permet visualitzar les variables d’entrada utilitzades pel model per a cada predicció.
+
+#### Característiques principals:
+- 🌐 Desenvolupat amb Flutter Web (exclusivament per navegadors d’escriptori)
+- 📩 Formulari de registre simple amb validació de correu
+- 📈 Visualització del preu predit per hora amb gràfic interactiu
+- 🧠 Detall de les features utilitzades en cada hora
+- 🎯 Presentació de les mètriques d’error associades
+
+**Nota:** Aquesta part queda fora de l’abast acadèmic de la memòria i no es recull amb detall en aquest document, però ha estat desenvolupada com a suport visual per a la defensa i com a eina pràctica per a la prova del sistema.
+
+### Execució de producció del front
+
+Per executar el frontend web compilat en local, segueix els passos següents:
+
+1. Compila la versió optimitzada del frontend. Això generarà els fitxers al directori build/web.
+    Des del directori arrel del projecte Flutter:
+    ```
+    flutter build web
+    ```
+
+2. Serveix l’aplicació web compilada amb Python (port 8080)
+
+    ```
+    cd build/web
+    python -m http.server 8080
+    ```
+
+    Després obre el navegador i accedeix a:
+
+    ```
+    http://localhost:8080
+    ```
+Aquest mètode et permet visualitzar la versió final de la interfície en un navegador de manera lleugera, sense necessitat de cap servidor addicional.
+
 ## 📁 Estructura del repositori
 
 
@@ -131,6 +170,7 @@ Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-0
 │       ├── predict_final/           # Models entrenats
 │       └── training/                # Codi per l'entrenament dels models
 ├── service/                         # Servei REST
+├── front/                           # Interfície web
 ├── .gitignore
 ├── LICENSE
 ├── README
