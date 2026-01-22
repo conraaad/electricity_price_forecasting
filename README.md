@@ -1,23 +1,23 @@
 
-# Predicció de preus horaris del mercat elèctric (Espanya)
+# Hourly electricity market price prediction (Spain)
 
-Aquest projecte forma part del **Treball de Fi de Grau en Enginyeria Informàtica** de la Facultat d'Informàtica de Barcelona (FIB) - Universitat Politècnica de Catalunya (UPC), i té com a objectiu desenvolupar un model predictiu capaç de **preveure el preu horari del mercat majorista de l’electricitat a Espanya**. L’objectiu principal és proporcionar una eina útil per a petites i mitjanes empreses industrials que volen planificar el seu consum de manera intel·ligent i eficient.
+This project is part of the **Final Degree Project in Computer Engineering** of the Faculty of Computer Science of Barcelona (FIB) - Polytechnic University of Catalonia (UPC), and aims to develop a predictive model capable of **forecasting the hourly price of the wholesale electricity market in Spain**. The main objective is to provide a useful tool for small and medium-sized industrial companies that want to plan their consumption in an intelligent and efficient way.
 
-## 🧠 Enfocament
+## 🧠 Approach
 
-S’ha treballat amb tècniques de **machine learning supervisat**, centrant-se en models basats en arbres de decisió (Random Forest i XGBoost). El model s'entrena a partir de dades horàries del sistema elèctric espanyol i altres variables rellevants, utilitzant validació creuada temporal (*walk-forward validation*) per simular condicions reals de predicció.
+We have worked with **supervised machine learning** techniques, focusing on models based on decision trees (Random Forest and XGBoost). The model is trained using hourly data from the Spanish electricity system and other relevant variables, using temporal cross-validation (*walk-forward validation*) to simulate real prediction conditions.
 
-## 📊 Dades i característiques
+## 📊 Data and features
 
-Les dades cobreixen el període **del 16 d’agost de 2021 al 15 de setembre de 2024**, amb un total de **27.032 observacions** i **41 variables**. Les fonts de dades inclouen:
+The data covers the period **from August 16, 2021 to September 15, 2024**, with a total of **27,032 observations** and **41 variables**. The data sources include:
 
-- e.sios: Red Eléctrica (REE) – demanda, generació, intercanvis
-- OMIE – preus del mercat elèctric
-- AEMET – temperatura horària
-- MIBGAS – preu del gas natural
-- Nager.Date – Calendari de festius i codificacions temporals
+- e.sios: Red Eléctrica (REE) – demand, generation, exchanges
+- OMIE – electricity market prices
+- AEMET – hourly temperature
+- MIBGAS – natural gas price
+- Nager.Date – Holiday calendar and time coding
 
-Les **features seleccionades** finalment per a l'entrenament inclouen indicadors horaris, de demanda, de generació renovable, costos del gas, desequilibris i informació exògena com el calendari:
+The **features** finally selected for training include hourly indicators, demand, renewable generation, gas costs, imbalances and exogenous information such as the calendar:
 
 ```python
 features = [
@@ -35,9 +35,9 @@ features = [
 ]
 ```
 
-## ⚙️ Models i estratègies
+## ⚙️ Models and strategies
 
-S’han explorat diferents estratègies de modelització, amb i sense transformació logarítmica, i una estratègia *waterfall* que adapta el model al pas del temps:
+Different modeling strategies have been explored, with and without logarithmic transformation, and a *waterfall* strategy that adapts the model over time:
 
 |Model                      |	MAE (€/MWh) |	RMSE (€/MWh)  | SMAPE (%) |
 |---------------------------|---------------|-----------------|-----------|
@@ -46,38 +46,38 @@ S’han explorat diferents estratègies de modelització, amb i sense transforma
 |Random Forest Direct       |	9,6574      |	13,5126       |	58,1682   |
 |Random Forest Log Transform|	8,9598      |	13,3900       |	56,6759   |
 
-La millor estratègia general ha estat la combinació de **Random Forest amb transformació logarítmica** de la variable objectiu, que millora la predicció en trams de preus baixos i redueix la distorsió de les mètriques.
+The best overall strategy has been the combination of **Random Forest with logarithmic transformation** of the target variable, which improves prediction in low price ranges and reduces metric distortion.
 
-## 🧪 Validació
-S’ha utilitzat `TimeSeriesSplit` de `scikit-learn` per aplicar validació creuada temporal, evitant filtració d’informació futura i simulant predicció real.
+## 🧪 Validation
+`TimeSeriesSplit` from `scikit-learn` has been used to apply temporal cross-validation, avoiding future information leakage and simulating real prediction.
 
-## 🛠️ Reproducció
+## 🛠️ Reproduction
 
-### Requisits:
+### Requirements:
 - Python 3.10+
 - `scikit-learn`, `xgboost`, `pandas`, `numpy`, `matplotlib`, `joblib`, `django`
 
-Per instal·lar totes les dependències d'aques projecte pot executar:
+To install all the dependencies of this project you can run:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Entrenament
+### Training
 
-Executa el fitxer que vulguis de `model/src/training/*.py` per entrenar i validar el model amb cross-validation.
+Run the file you want from `model/src/training/*.py` to train and validate the model with cross-validation.
 
-### Predicció sobre test final
+### Prediction on final test
 
-Executa el fitxer que vulguis de `model/src/predict_final/*.py` per obtenir els resultats sobre el conjunt de test separat.
+Run the file you want from `model/src/predict_final/*.py` to obtain the results on the separate test set.
 
-## 🔌 Exposició via servei web
+## 🔌 Exposure via web service
 
-Un cop entrenat i validat el model, aquest s’ha integrat dins d’un servei web lleuger que permet fer prediccions a demanda mitjançant peticions HTTP. Aquest servei està pensat per ser consumit fàcilment des d’un client (frontend, app industrial o servei d’automatització).
+Once the model has been trained and validated, it has been integrated into a lightweight web service that allows predictions to be made on demand via HTTP requests. This service is designed to be easily consumed from a client (frontend, industrial app or automation service).
 
-L’API ha estat desenvolupada amb Django i exposa un endpoint `/predict` que retorna el preu horari estimat basat en dades existents, en aquest cas al ser una prova s'utlitzaran les dades del test.
+The API has been developed with Django and exposes an endpoint `/predict` that returns the estimated hourly price based on existing data, in this case being a test the test data will be used.
 
-Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-04 (dia del dataset de testing):
+This is the response format of the `/predict` request for the day 2023-10-04 (day of the testing dataset):
 
 ````
 {
@@ -106,10 +106,10 @@ Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-0
 }
 ````
 
-### Per executar el projecte el servei en local:
+### To run the service project locally:
 
-1. Situar-se al directori `/service`.
-2. Executar el següent:
+1. Go to the `/service` directory.
+2. Run the following:
 
     ````bash
     python manage.py makemigrations
@@ -117,72 +117,72 @@ Aquesta és la format de resposta de la petició `/predict` per al dia 2023-10-0
     python manage.py runserver
     ````
 
-## 💻 Interfície Web amb Flutter
+## 💻 Web Interface with Flutter
 
-Tot i que el desenvolupament del client no formava part dels objectius directes d’aquest Treball de Fi de Grau, s’ha implementat una interfície web amb Flutter Web amb l’objectiu de facilitar la presentació del projecte i mostrar el funcionament del servei en temps real.
+Although client development was not part of the direct objectives of this Final Degree Project, a web interface with Flutter Web has been implemented with the aim of facilitating the presentation of the project and showing the operation of the service in real time.
 
-Aquesta aplicació consumeix el servei REST exposat pel backend Django, i permet a qualsevol usuari registrat (a través del seu correu electrònic) obtenir les prediccions horàries del mercat elèctric d’un dia concret. També mostra mètriques d’error per hora (MAE, RMSE, SMAPE) i permet visualitzar les variables d’entrada utilitzades pel model per a cada predicció.
+This application consumes the REST service exposed by the Django backend, and allows any registered user (through their email) to obtain hourly predictions of the electricity market for a specific day. It also shows hourly error metrics (MAE, RMSE, SMAPE) and allows viewing the input variables used by the model for each prediction.
 
-#### Característiques principals:
-- 🌐 Desenvolupat amb Flutter Web (exclusivament per navegadors d’escriptori)
-- 📩 Formulari de registre simple amb validació de correu
-- 📈 Visualització del preu predit per hora amb gràfic interactiu
-- 🧠 Detall de les features utilitzades en cada hora
-- 🎯 Presentació de les mètriques d’error associades
+#### Main features:
+- 🌐 Developed with Flutter Web (exclusively for desktop browsers)
+- 📩 Simple registration form with email validation
+- 📈 Visualization of the predicted price per hour with interactive graph
+- 🧠 Detail of the features used in each hour
+- 🎯 Presentation of the associated error metrics
 
-**Nota:** Aquesta part queda fora de l’abast acadèmic de la memòria i no es recull amb detall en aquest document, però ha estat desenvolupada com a suport visual per a la defensa i com a eina pràctica per a la prova del sistema.
+**Note:** This part is outside the academic scope of the memory and is not covered in detail in this document, but has been developed as a visual support for the defense and as a practical tool for testing the system.
 
-### Execució de producció del front
+### Production execution of the frontend
 
-Per executar el frontend web compilat en local, segueix els passos següents:
+To run the compiled web frontend locally, follow these steps:
 
-1. Compila la versió optimitzada del frontend. Això generarà els fitxers al directori build/web.
-    Des del directori arrel del projecte Flutter:
-    ```
-    flutter build web
-    ```
+1. Compile the optimized version of the frontend. This will generate the files in the build/web directory.
+From the Flutter project root directory:
+```
+flutter build web
+```
 
-2. Serveix l’aplicació web compilada amb Python (port 8080)
+2. Serve the web application compiled with Python (port 8080)
 
-    ```
-    cd build/web
-    python -m http.server 8080
-    ```
+```
+cd build/web
+python -m http.server 8080
+```
 
-    Després obre el navegador i accedeix a:
+Then open your browser and access:
 
-    ```
-    http://localhost:8080
-    ```
-Aquest mètode et permet visualitzar la versió final de la interfície en un navegador de manera lleugera, sense necessitat de cap servidor addicional.
+```
+http://localhost:8080
+```
+This method allows you to view the final version of the interface in a browser in a lightweight way, without the need for any additional server.
 
-## 📁 Estructura del repositori
 
+## 📁 Repository structure
 
 ````
 ├── model/
 │   ├── data/
-│   │   ├── analysis/                # Datasets d'anàlisi
-│   │   ├── datasets/                # Datasets definitius 
-│   │   └── feature_data/            # Datasets de les features
-│   └── src/                         # Codi
-│       ├── data_treatment/          # Codi pel tractament de les dades
-│       ├── predict_final/           # Models entrenats
-│       └── training/                # Codi per l'entrenament dels models
-├── service/                         # Servei REST
-├── front/                           # Interfície web
+│   │   ├── analysis/                # Analysis Datasets
+│   │   ├── datasets/                # Final Datasets 
+│   │   └── feature_data/            # Features Datasets
+│   └── src/                         # Code
+│       ├── data_treatment/          # Data treatment code
+│       ├── predict_final/           # Trained models
+│       └── training/                # Training models code
+├── service/                         # REST Service code
+├── front/                           # Web UI
 ├── .gitignore
 ├── LICENSE
 ├── README
 └── requirements.txt
 ````
 
-## 🧑🏼‍💻 Autor
+## 🧑🏼‍💻 Author
 
-Aquest projecte ha estat desenvolupat per en Conrad Puig i Arimon com a part del seu Treball de Fi de Grau en Enginyeria Informàtica.
+This project was developed by Conrad Puig i Arimon as part of his Bachelor's Thesis in Computer Engineering.
 
-## 📄 Llicència
+## 📄 License
 
-Aquest projecte està llicenciat sota la **MIT License**, que permet l'ús, còpia, modificació i distribució lliure del codi, amb l'única condició que sempre que se'n citi l’autoria original.
+This project is licensed under the **MIT License**, which allows the free use, copying, modification and distribution of the code, with the only condition that the original authorship is always cited.
 
-Consulta el fitxer `LICENSE` per a més detalls.
+See the `LICENSE` file for more details.
